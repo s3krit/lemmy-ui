@@ -74,7 +74,6 @@ interface PostListingProps {
   moderators?: CommunityModeratorView[];
   admins?: PersonViewSafe[];
   enableDownvotes: boolean;
-  enableNsfw: boolean;
 }
 
 export class PostListing extends Component<PostListingProps, PostListingState> {

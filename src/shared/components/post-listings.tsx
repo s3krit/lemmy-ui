@@ -10,7 +10,6 @@ interface PostListingsProps {
   showCommunity?: boolean;
   removeDuplicates?: boolean;
   enableDownvotes: boolean;
-  enableNsfw: boolean;
 }
 
 export class PostListings extends Component<PostListingsProps, any> {
@@ -31,7 +30,6 @@ export class PostListings extends Component<PostListingsProps, any> {
                 duplicates={this.duplicatesMap.get(post_view.post.id)}
                 showCommunity={this.props.showCommunity}
                 enableDownvotes={this.props.enableDownvotes}
-                enableNsfw={this.props.enableNsfw}
               />
               <hr class="my-3" />
             </>

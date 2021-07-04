@@ -60,7 +60,6 @@ interface PostFormProps {
   onCancel?(): any;
   onCreate?(post: PostView): any;
   onEdit?(post: PostView): any;
-  enableNsfw: boolean;
   enableDownvotes: boolean;
 }
 
@@ -81,7 +80,7 @@ export class PostForm extends Component<PostFormProps, PostFormState> {
     postForm: {
       community_id: null,
       name: null,
-      nsfw: false,
+      nsfw: true,
       auth: authField(false),
     },
     loading: false,
@@ -235,7 +234,6 @@ export class PostForm extends Component<PostFormProps, PostFormState> {
                     showCommunity
                     posts={this.state.crossPosts}
                     enableDownvotes={this.props.enableDownvotes}
-                    enableNsfw={this.props.enableNsfw}
                   />
                 </>
               )}
@@ -271,7 +269,6 @@ export class PostForm extends Component<PostFormProps, PostFormState> {
                   <PostListings
                     posts={this.state.suggestedPosts}
                     enableDownvotes={this.props.enableDownvotes}
-                    enableNsfw={this.props.enableNsfw}
                   />
                 </>
               )}
@@ -306,24 +303,6 @@ export class PostForm extends Component<PostFormProps, PostFormState> {
                     </option>
                   ))}
                 </select>
-              </div>
-            </div>
-          )}
-          {this.props.enableNsfw && (
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    id="post-nsfw"
-                    type="checkbox"
-                    checked={this.state.postForm.nsfw}
-                    onChange={linkEvent(this, this.handlePostNsfwChange)}
-                  />
-                  <label class="form-check-label" htmlFor="post-nsfw">
-                    {i18n.t("nsfw")}
-                  </label>
-                </div>
               </div>
             </div>
           )}
