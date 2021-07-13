@@ -51,7 +51,7 @@ export class Login extends Component<any, State> {
       username: undefined,
       password: undefined,
       password_verify: undefined,
-      show_nsfw: false,
+      show_nsfw: true,
       captcha_uuid: undefined,
       captcha_answer: undefined,
     },
@@ -201,7 +201,6 @@ export class Login extends Component<any, State> {
               type="email"
               id="register-email"
               class="form-control"
-              placeholder={i18n.t("optional")}
               value={this.state.registerForm.email}
               autoComplete="email"
               onInput={linkEvent(this, this.handleRegisterEmailChange)}
@@ -291,13 +290,10 @@ export class Login extends Component<any, State> {
                 <input
                   class="form-check-input"
                   id="register-show-nsfw"
-                  type="checkbox"
+                  type="hidden"
                   checked={this.state.registerForm.show_nsfw}
                   onChange={linkEvent(this, this.handleRegisterShowNsfwChange)}
                 />
-                <label class="form-check-label" htmlFor="register-show-nsfw">
-                  {i18n.t("show_nsfw")}
-                </label>
               </div>
             </div>
           </div>
